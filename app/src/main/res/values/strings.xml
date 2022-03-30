@@ -1,6 +1,8 @@
 <resources>
     <string name="app_name">OldGameApp</string>
     <string name="action_settings">Settings</string>
+    <string name="hp">Parabens voce venceu!</string>
+    <string name="velha">Deu velha!!</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>
