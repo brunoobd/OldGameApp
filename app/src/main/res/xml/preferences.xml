@@ -16,4 +16,18 @@
         android:key="jogadas"
         android:title="Melhor de jogadas"
         android:summary="Escolha de quantas é a melhor"/>
+    <androidx.preference.DropDownPreference
+        android:icon="@android:drawable/ic_menu_manage"
+        android:key="tabuleiro"
+        android:title="Tamanho do tabuleiro"
+        android:summary="Defina o tamanho do tabuleiro"
+        android:defaultValue="3x3"
+        android:entryValues="@array/tabuleiro"
+        android:entries="@array/tabuleiro"
+        />
+<!--    <androidx.preference.EditTextPreference-->
+<!--        android:icon="@android:drawable/ic_menu_manage"-->
+<!--        android:key="tabuleiro"-->
+<!--        android:title="Tipo de tabuleiro"-->
+<!--        android:summary="Escolha o tipo de tabuliero"/>-->
 </androidx.preference.PreferenceScreen>

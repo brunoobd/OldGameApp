@@ -10,8 +10,11 @@
         android:label=""
         tools:layout="@layout/fragment_inicio" >
         <action
-            android:id="@+id/action_inicioFragment_to_jogoFragment"
+            android:id="@+id/action_inicioFragment_to_jogo3x3Fragment"
             app:destination="@id/jogoFragment" />
+        <action
+            android:id="@+id/action_inicioFragment_to_jogo5x5Fragment"
+            app:destination="@id/jogo5X5Fragment" />
     </fragment>
     <fragment
         android:id="@+id/jogoFragment"
@@ -23,6 +26,18 @@
             app:destination="@id/inicioFragment" />
         <action
             android:id="@+id/action_jogoFragment_to_prefFragment"
+            app:destination="@id/prefFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/jogo5X5Fragment"
+        android:label=""
+        android:name="br.senai.sp.cotia.oldgameapp.fragment.JogoFragment"
+        tools:layout="@layout/fragment_jogo5x5" >
+        <action
+            android:id="@+id/action_jogo5x5Fragment_to_inicioFragment"
+            app:destination="@id/inicioFragment" />
+        <action
+            android:id="@+id/action_jogo5x5Fragment_to_prefFragment"
             app:destination="@id/prefFragment" />
     </fragment>
     <fragment

@@ -12,4 +12,10 @@
     <string name="simb_jog2">Simbolo do Jogador 2</string>
     <string name="summary_simb_jog1">Escolha o simbolo do Jogador 1</string>
     <string name="summary_simb_jog2">Escolha o simbolo do Jogador 2</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string-array name="tabuleiro">
+        <item>3x3</item>
+        <item>5x5</item>
+    </string-array>
 </resources>

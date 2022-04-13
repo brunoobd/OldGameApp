@@ -22,13 +22,14 @@ import java.util.Arrays;
 import java.util.Random;
 
 import br.senai.sp.cotia.oldgameapp.R;
+import br.senai.sp.cotia.oldgameapp.databinding.FragmentJogo5x5Binding;
 import br.senai.sp.cotia.oldgameapp.databinding.FragmentJogoBinding;
 import br.senai.sp.cotia.oldgameapp.util.PrefsUtil;
 
-public class JogoFragment extends Fragment {
+public class Jogo5x5Fragment extends Fragment {
 
     // váriavel para acessar os elementos da View
-    private FragmentJogoBinding biding;
+    private FragmentJogo5x5Binding binding;
 
     // vetor de botoes para referenciar os botoes
     private Button[] botoes;
@@ -59,20 +60,40 @@ public class JogoFragment extends Fragment {
         setHasOptionsMenu(true);
 
         // instanciar o binding
-        biding = FragmentJogoBinding.inflate(inflater, container, false);
+        binding = FragmentJogo5x5Binding.inflate(inflater, container, false);
 
         //instanciar o vetor dos botoes
-        botoes = new Button[9];
+        botoes = new Button[25];
         // associar o vetor aos botoes
-        botoes[0] = biding.bt00;
-        botoes[1] = biding.bt01;
-        botoes[2] = biding.bt02;
-        botoes[3] = biding.bt10;
-        botoes[4] = biding.bt11;
-        botoes[5] = biding.bt12;
-        botoes[6] = biding.bt20;
-        botoes[7] = biding.bt21;
-        botoes[8] = biding.bt22;
+        botoes[0] = binding.bt00;
+        botoes[1] = binding.bt01;
+        botoes[2] = binding.bt02;
+        botoes[3] = binding.bt03;
+        botoes[4] = binding.bt04;
+
+        botoes[5] = binding.bt10;
+        botoes[6] = binding.bt11;
+        botoes[7] = binding.bt12;
+        botoes[8] = binding.bt13;
+        botoes[9] = binding.bt14;
+
+        botoes[10] = binding.bt20;
+        botoes[11] = binding.bt21;
+        botoes[12] = binding.bt22;
+        botoes[13] = binding.bt23;
+        botoes[14] = binding.bt24;
+
+        botoes[15] = binding.bt30;
+        botoes[16] = binding.bt31;
+        botoes[17] = binding.bt32;
+        botoes[18] = binding.bt33;
+        botoes[19] = binding.bt34;
+
+        botoes[20] = binding.bt40;
+        botoes[21] = binding.bt41;
+        botoes[22] = binding.bt42;
+        botoes[23] = binding.bt43;
+        botoes[24] = binding.bt44;
 
         // associa o listener aos botoes
         for (Button bt: botoes) {
@@ -80,13 +101,7 @@ public class JogoFragment extends Fragment {
         }
 
         // instanciando o tabuleiro
-        tabuleiro = new String[3][3];
-
-//        for (int i = 0; i < 3; i++) {
-//            for (int j = 0; j < 3; j++) {
-//                tabuleiro[i][j] = "";
-//            }
-//        }
+        tabuleiro = new String[5][5];
 
         for (String[] vetor: tabuleiro) {
             Arrays.fill(vetor, "");
@@ -140,7 +155,7 @@ public class JogoFragment extends Fragment {
         atualizaVez();
 
         // retorna a view root do binding
-        return biding.getRoot();
+        return binding.getRoot();
     }
     // metodo que define quem começa jogando
     public void sorteia() {
@@ -152,30 +167,26 @@ public class JogoFragment extends Fragment {
             simbolo = simbJog2;
         }
     }
-
     // método que atualizar o placar dos jogadores...
     private void atualizaPlacar() {
-        biding.tvPlacar1.setText(placarJog1+"");
-        biding.tvPlacar2.setText(placarJog2+"");
-        biding.tvPlacarVelha.setText(placarVelha+"");
+        binding.tvPlacar1.setText(placarJog1+"");
+        binding.tvPlacar2.setText(placarJog2+"");
+        binding.tvPlacarVelha.setText(placarVelha+"");
     }
-
     // metodo que troca a vez
     public void atualizaVez() {
         if (simbolo.equals(simbJog1)) {
-            biding.trJg1.setBackgroundColor(getResources().getColor(R.color.secundaria));
-            biding.trJg2.setBackgroundColor(getResources().getColor(R.color.principal));
+            binding.trJg1.setBackgroundColor(getResources().getColor(R.color.secundaria));
+            binding.trJg2.setBackgroundColor(getResources().getColor(R.color.principal));
         } else {
-            biding.trJg2.setBackgroundColor(getResources().getColor(R.color.secundaria));
-            biding.trJg1.setBackgroundColor(getResources().getColor(R.color.principal));
+            binding.trJg2.setBackgroundColor(getResources().getColor(R.color.secundaria));
+            binding.trJg1.setBackgroundColor(getResources().getColor(R.color.principal));
         }
     }
-
     @Override
     public void onCreateOptionsMenu(@NonNull Menu menu, @NonNull MenuInflater inflater) {
         inflater.inflate(R.menu.menu_main, menu);
     }
-
     @Override
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
         // ALERTA
@@ -207,15 +218,14 @@ public class JogoFragment extends Fragment {
                 alert.show();
                 break;
             case R.id.menu_prefs:
-                NavHostFragment.findNavController(JogoFragment.this).navigate(R.id.action_jogoFragment_to_prefFragment);
+                NavHostFragment.findNavController(Jogo5x5Fragment.this).navigate(R.id.action_jogo5x5Fragment_to_prefFragment);
                 break;
             case R.id.menu_inicio:
-                NavHostFragment.findNavController(JogoFragment.this).navigate(R.id.action_jogoFragment_to_inicioFragment);
+                NavHostFragment.findNavController(Jogo5x5Fragment.this).navigate(R.id.action_jogo5x5Fragment_to_inicioFragment);
                 break;
         }
         return true;
     }
-
     // listener para os botoes
     private View.OnClickListener listenerBotoes = btPress -> {
         // obtém o nome do botão
@@ -240,10 +250,8 @@ public class JogoFragment extends Fragment {
         // desabilitar o botao que foi clicado
         botao.setClickable(false);
 
-
-
         // verifica se venceu
-        if (numJogadas >= 5 && venceu()) {
+        if (numJogadas >= 7 && venceu()) {
             // verifica quem venceu
             if(simbolo.equals(simbJog1)) {
                 placarJog1++;
@@ -258,7 +266,7 @@ public class JogoFragment extends Fragment {
             atualizaPlacar();
             // resta a partida
             resetaJogo();
-        } else  if (numJogadas == 9) {
+        } else  if (numJogadas == 25) {
             placarVelha++;
             atualizaPlacar();
             Toast.makeText(getContext(), R.string.velha, Toast.LENGTH_LONG).show();
@@ -295,25 +303,32 @@ public class JogoFragment extends Fragment {
             resetaJogo();
         }
     };
-
     private boolean venceu() {
-        for (int l = 0; l < 3; l++){
+        for (int l = 0; l < 5; l++){
             if (tabuleiro[l][0].equals(simbolo) && tabuleiro[l][1].equals(simbolo) && tabuleiro[l][2].equals(simbolo)) {
                 return true;
             }
         }
 
-        for (int c = 0; c < 3; c++) {
+        for (int c = 0; c < 5; c++) {
             if (tabuleiro[0][c].equals(simbolo) && tabuleiro[1][c].equals(simbolo) && tabuleiro[2][c].equals(simbolo)) {
                 return true;
             }
         }
 
-        if (tabuleiro[0][0].equals(simbolo) && tabuleiro[1][1].equals(simbolo) && tabuleiro[2][2].equals(simbolo)) {
+        if (tabuleiro[0][0].equals(simbolo)
+                && tabuleiro[1][1].equals(simbolo)
+                && tabuleiro[2][2].equals(simbolo)
+                && tabuleiro[3][3].equals(simbolo)
+                && tabuleiro[4][4].equals(simbolo)) {
             return true;
         }
 
-        if (tabuleiro[0][2].equals(simbolo) && tabuleiro[1][1].equals(simbolo) && tabuleiro[2][0].equals(simbolo)) {
+        if (tabuleiro[0][4].equals(simbolo)
+                && tabuleiro[1][3].equals(simbolo)
+                && tabuleiro[2][2].equals(simbolo)
+                && tabuleiro[3][1].equals(simbolo)
+                && tabuleiro[4][0].equals(simbolo)) {
             return true;
         }
         return false;
@@ -347,6 +362,4 @@ public class JogoFragment extends Fragment {
         activity.getSupportActionBar().show();
         activity.getSupportActionBar().setDisplayHomeAsUpEnabled(false);
     }
-
-
 }

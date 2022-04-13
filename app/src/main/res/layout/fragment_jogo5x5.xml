@@ -4,7 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    tools:context=".fragment.JogoFragment"
+    tools:context=".fragment.Jogo5x5Fragment"
     android:background="@color/principal">
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -81,7 +81,7 @@
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintRight_toRightOf="parent"
             app:layout_constraintBottom_toBottomOf="parent"
-            android:layout_width="310dp"
+            android:layout_width="300dp"
             android:layout_height="wrap_content"
             android:layout_gravity="center">
             <TableRow
@@ -89,17 +89,27 @@
                 android:layout_height="wrap_content">
                 <Button
                     android:id="@+id/bt00"
-                    style="@style/style_button"/>
+                    style="@style/style_button5X5"/>
                 <View
-                    style="@style/style_view_vertical" />
+                    style="@style/style_view_vertical5X5" />
                 <Button
                     android:id="@+id/bt01"
-                    style="@style/style_button"/>
+                    style="@style/style_button5X5"/>
                 <View
-                    style="@style/style_view_vertical"/>
+                    style="@style/style_view_vertical5X5"/>
                 <Button
                     android:id="@+id/bt02"
-                    style="@style/style_button"/>
+                    style="@style/style_button5X5"/>
+                <View
+                    style="@style/style_view_vertical5X5"/>
+                <Button
+                    android:id="@+id/bt03"
+                    style="@style/style_button5X5"/>
+                <View
+                    style="@style/style_view_vertical5X5"/>
+                <Button
+                    android:id="@+id/bt04"
+                    style="@style/style_button5X5"/>
             </TableRow>
             <View
                 style="@style/style_view_hotizontal"/>
@@ -108,17 +118,27 @@
                 android:layout_height="wrap_content">
                 <Button
                     android:id="@+id/bt10"
-                    style="@style/style_button"/>
+                    style="@style/style_button5X5"/>
                 <View
-                    style="@style/style_view_vertical" />
+                    style="@style/style_view_vertical5X5" />
                 <Button
                     android:id="@+id/bt11"
-                    style="@style/style_button"/>
+                    style="@style/style_button5X5"/>
                 <View
-                    style="@style/style_view_vertical" />
+                    style="@style/style_view_vertical5X5"/>
                 <Button
                     android:id="@+id/bt12"
-                    style="@style/style_button"/>
+                    style="@style/style_button5X5"/>
+                <View
+                    style="@style/style_view_vertical5X5"/>
+                <Button
+                    android:id="@+id/bt13"
+                    style="@style/style_button5X5"/>
+                <View
+                    style="@style/style_view_vertical5X5"/>
+                <Button
+                    android:id="@+id/bt14"
+                    style="@style/style_button5X5"/>
             </TableRow>
             <View
                 style="@style/style_view_hotizontal"/>
@@ -127,19 +147,86 @@
                 android:layout_height="wrap_content">
                 <Button
                     android:id="@+id/bt20"
-                    style="@style/style_button"/>
+                    style="@style/style_button5X5"/>
                 <View
-                    style="@style/style_view_vertical"/>
+                    style="@style/style_view_vertical5X5" />
                 <Button
                     android:id="@+id/bt21"
-                    style="@style/style_button"/>
+                    style="@style/style_button5X5"/>
                 <View
-                    style="@style/style_view_vertical"/>
+                    style="@style/style_view_vertical5X5"/>
                 <Button
                     android:id="@+id/bt22"
-                    style="@style/style_button"/>
+                    style="@style/style_button5X5"/>
+                <View
+                    style="@style/style_view_vertical5X5"/>
+                <Button
+                    android:id="@+id/bt23"
+                    style="@style/style_button5X5"/>
+                <View
+                    style="@style/style_view_vertical5X5"/>
+                <Button
+                    android:id="@+id/bt24"
+                    style="@style/style_button5X5"/>
             </TableRow>
-
+            <View
+                style="@style/style_view_hotizontal"/>
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+                <Button
+                    android:id="@+id/bt30"
+                    style="@style/style_button5X5"/>
+                <View
+                    style="@style/style_view_vertical5X5" />
+                <Button
+                    android:id="@+id/bt31"
+                    style="@style/style_button5X5"/>
+                <View
+                    style="@style/style_view_vertical5X5"/>
+                <Button
+                    android:id="@+id/bt32"
+                    style="@style/style_button5X5"/>
+                <View
+                    style="@style/style_view_vertical5X5"/>
+                <Button
+                    android:id="@+id/bt33"
+                    style="@style/style_button5X5"/>
+                <View
+                    style="@style/style_view_vertical5X5"/>
+                <Button
+                    android:id="@+id/bt34"
+                    style="@style/style_button5X5"/>
+            </TableRow>
+            <View
+                style="@style/style_view_hotizontal"/>
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+                <Button
+                    android:id="@+id/bt40"
+                    style="@style/style_button5X5"/>
+                <View
+                    style="@style/style_view_vertical5X5" />
+                <Button
+                    android:id="@+id/bt41"
+                    style="@style/style_button5X5"/>
+                <View
+                    style="@style/style_view_vertical5X5"/>
+                <Button
+                    android:id="@+id/bt42"
+                    style="@style/style_button5X5"/>
+                <View
+                    style="@style/style_view_vertical5X5"/>
+                <Button
+                    android:id="@+id/bt43"
+                    style="@style/style_button5X5"/>
+                <View
+                    style="@style/style_view_vertical5X5"/>
+                <Button
+                    android:id="@+id/bt44"
+                    style="@style/style_button5X5"/>
+            </TableRow>
         </TableLayout>
     </androidx.constraintlayout.widget.ConstraintLayout>
 

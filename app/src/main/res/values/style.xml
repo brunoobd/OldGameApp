@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <!-- ########################## STYLE JOGO 3X3 ##########################  -->
     <style name="style_tablerow">
         <item name="android:layout_width">match_parent</item>
         <item name="android:layout_height">wrap_content</item>
@@ -30,6 +31,22 @@
     <style name="style_view_hotizontal">
         <item name="android:layout_width">match_parent</item>
         <item name="android:layout_height">6dp</item>
+        <item name="android:background">@color/secundaria</item>
+    </style>
+
+    <!-- ########################## STYLE JOGO 5X5 ##########################  -->
+    <style name="style_button5X5">
+        <item name="android:layout_width">55dp</item>
+        <item name="android:layout_height">55dp</item>
+        <item name="background">@android:color/transparent</item>
+        <item name="android:textColor">@color/white</item>
+        <item name="android:textSize">20sp</item>
+        <item name="android:stateListAnimator">@null</item>
+    </style>
+
+    <style name="style_view_vertical5X5">
+        <item name="android:layout_width">6dp</item>
+        <item name="android:layout_height">55dp</item>
         <item name="android:background">@color/secundaria</item>
     </style>
 </resources>

@@ -15,6 +15,7 @@ import android.widget.TextView;
 import br.senai.sp.cotia.oldgameapp.R;
 import br.senai.sp.cotia.oldgameapp.databinding.FragmentInicioBinding;
 import br.senai.sp.cotia.oldgameapp.databinding.FragmentJogoBinding;
+import br.senai.sp.cotia.oldgameapp.util.PrefsUtil;
 
 public class InicioFragment extends Fragment {
     // variavel para acessar os componentes da view
@@ -28,7 +29,11 @@ public class InicioFragment extends Fragment {
         binding = FragmentInicioBinding.inflate(inflater, container, false);
 
         binding.start.setOnClickListener(view -> {
-            NavHostFragment.findNavController(InicioFragment.this).navigate(R.id.action_inicioFragment_to_jogoFragment);
+            if (PrefsUtil.getTabuleiro(getContext()).equals("3x3")) {
+                NavHostFragment.findNavController(InicioFragment.this).navigate(R.id.action_inicioFragment_to_jogo3x3Fragment);
+            } else {
+                NavHostFragment.findNavController(InicioFragment.this).navigate(R.id.action_inicioFragment_to_jogo5x5Fragment);
+            }
         });
 
         // Inflate the layout for this fragment

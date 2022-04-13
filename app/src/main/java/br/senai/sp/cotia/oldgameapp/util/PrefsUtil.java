@@ -34,4 +34,9 @@ public class PrefsUtil {
         SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(context);
         return preferences.getString("jogadas", "5");
     }
+
+    public static String getTabuleiro (Context context) {
+        SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(context);
+        return preferences.getString("tabuleiro", "3x3");
+    }
 }
