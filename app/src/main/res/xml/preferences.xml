@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.preference.PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
+    <androidx.preference.EditTextPreference
+        android:icon="@android:drawable/ic_menu_manage"
+        android:key="simb_jog_1"
+        android:title="@string/simb_jog1"
+        android:summary="@string/summary_simb_jog1"/>
+    <androidx.preference.EditTextPreference
+        
+        android:icon="@android:drawable/ic_menu_manage"
+        android:key="simb_jog_2"
+        android:title="@string/simb_jog2"
+        android:summary="@string/summary_simb_jog2"/>
+    <androidx.preference.EditTextPreference
+        android:icon="@android:drawable/ic_menu_manage"
+        android:key="jogadas"
+        android:title="Melhor de jogadas"
+        android:summary="Escolha de quantas é a melhor"/>
+</androidx.preference.PreferenceScreen>

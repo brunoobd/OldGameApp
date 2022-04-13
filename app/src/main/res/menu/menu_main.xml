@@ -3,8 +3,18 @@
     xmlns:tools="http://schemas.android.com/tools"
     tools:context="br.senai.sp.cotia.oldgameapp.activity.MainActivity">
     <item
-        android:id="@+id/action_settings"
-        android:orderInCategory="100"
-        android:title="@string/action_settings"
+        android:id="@+id/menu_resetar"
+        android:icon="@android:drawable/ic_menu_revert"
+        android:title="Resetar"
+        app:showAsAction="never" />
+    <item
+        android:id="@+id/menu_inicio"
+        android:icon="@android:drawable/ic_media_previous"
+        android:title="@string/inicio"
+        app:showAsAction="never" />
+    <item
+        android:id="@+id/menu_prefs"
+        android:icon="@android:drawable/ic_menu_preferences"
+        android:title="@string/preferencias"
         app:showAsAction="never" />
 </menu>

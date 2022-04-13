@@ -16,27 +16,19 @@
             android:layout_height="wrap_content">
             <TableRow
                 android:id="@+id/tr_jg1"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="5dp"
-                android:layout_marginBottom="5dp">
+                style="@style/style_tablerow">
                 <TextView
-                    android:layout_width="0dp"
+                    android:id="@+id/tv_jog1"
+                    style="@style/style_tv"
                     android:layout_weight="4"
-                    android:layout_height="wrap_content"
-                    android:text="PLAYER 1"
-                    android:textColor="@color/white"
-                    android:fontFamily="@font/upheavtt"
-                    android:textSize="25sp"/>
+                    android:text="@string/jog1" />
                 <TextView
-                    android:layout_width="0dp"
+                    style="@style/style_tv"
+                    android:id="@+id/tv_placar1"
                     android:layout_weight="1"
-                    android:layout_height="wrap_content"
                     android:text="0"
                     android:textAlignment="textEnd"
-                    android:textColor="@color/white"
-                    android:fontFamily="@font/upheavtt"
-                    android:textSize="25sp"/>
+                    />
             </TableRow>
             <View
                 android:layout_width="match_parent"
@@ -44,27 +36,39 @@
                 android:background="@color/white"/>
             <TableRow
                 android:id="@+id/tr_jg2"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="5dp"
-                android:layout_marginBottom="5dp">
+                style="@style/style_tablerow">
                 <TextView
-                    android:layout_width="0dp"
+                    android:id="@+id/tv_jog2"
+                    style="@style/style_tv"
                     android:layout_weight="4"
-                    android:layout_height="wrap_content"
-                    android:text="PLAYER 2"
-                    android:textColor="@color/white"
-                    android:fontFamily="@font/upheavtt"
-                    android:textSize="25sp"/>
+                    android:text="@string/jog2"
+                    />
                 <TextView
-                    android:layout_width="0dp"
+                    style="@style/style_tv"
+                    android:id="@+id/tv_placar2"
                     android:layout_weight="1"
-                    android:layout_height="wrap_content"
                     android:text="0"
-                    android:textAlignment="textEnd"
-                    android:textColor="@color/white"
-                    android:fontFamily="@font/upheavtt"
-                    android:textSize="25sp"/>
+                    android:textAlignment="textEnd" />
+            </TableRow>
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="3dp"
+                android:background="@color/white"/>
+            <TableRow
+                android:id="@+id/tr_velha"
+                style="@style/style_tablerow">
+                <TextView
+                    android:id="@+id/tv_velha"
+                    style="@style/style_tv"
+                    android:layout_weight="4"
+                    android:text="VELHAS"
+                    />
+                <TextView
+                    style="@style/style_tv"
+                    android:id="@+id/tv_placarVelha"
+                    android:layout_weight="1"
+                    android:text="0"
+                    android:textAlignment="textEnd" />
             </TableRow>
         </TableLayout>
         <TableLayout
@@ -77,89 +81,55 @@
                 android:layout_height="wrap_content">
                 <Button
                     android:id="@+id/bt00"
-                    android:layout_width="100dp"
-                    android:layout_height="100dp"
-                    android:background="@android:color/transparent"/>
+                    style="@style/style_button"/>
                 <View
-                    android:layout_width="6dp"
-                    android:layout_height="100dp"
-                    android:background="@color/secundaria"/>
+                    style="@style/style_view_vertical" />
                 <Button
                     android:id="@+id/bt01"
-                    android:layout_width="100dp"
-                    android:layout_height="100dp"
-                    android:background="@android:color/transparent"/>
+                    style="@style/style_button"/>
                 <View
-                    android:layout_width="6dp"
-                    android:layout_height="100dp"
-                    android:background="@color/secundaria"/>
+                    style="@style/style_view_vertical"/>
                 <Button
                     android:id="@+id/bt02"
-                    android:layout_width="100dp"
-                    android:layout_height="100dp"
-                    android:background="@android:color/transparent"/>
+                    style="@style/style_button"/>
             </TableRow>
             <View
-                android:layout_width="match_parent"
-                android:layout_height="6dp"
-                android:background="@color/secundaria"/>
+                style="@style/style_view_hotizontal"/>
             <TableRow
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
                 <Button
                     android:id="@+id/bt10"
-                    android:layout_width="100dp"
-                    android:layout_height="100dp"
-                    android:background="@android:color/transparent"/>
+                    style="@style/style_button"/>
                 <View
-                    android:layout_width="6dp"
-                    android:layout_height="100dp"
-                    android:background="@color/secundaria"/>
+                    style="@style/style_view_vertical" />
                 <Button
                     android:id="@+id/bt11"
-                    android:layout_width="100dp"
-                    android:layout_height="100dp"
-                    android:background="@android:color/transparent"/>
+                    style="@style/style_button"/>
                 <View
-                    android:layout_width="6dp"
-                    android:layout_height="100dp"
-                    android:background="@color/secundaria"/>
+                    style="@style/style_view_vertical" />
                 <Button
                     android:id="@+id/bt12"
-                    android:layout_width="100dp"
-                    android:layout_height="100dp"
-                    android:background="@android:color/transparent"/>
+                    style="@style/style_button"/>
             </TableRow>
             <View
-                android:layout_width="match_parent"
-                android:layout_height="6dp"
-                android:background="@color/secundaria"/>
+                style="@style/style_view_hotizontal"/>
             <TableRow
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
                 <Button
                     android:id="@+id/bt20"
-                    android:layout_width="100dp"
-                    android:layout_height="100dp"
-                    android:background="@android:color/transparent"/>
+                    style="@style/style_button"/>
                 <View
-                    android:layout_width="6dp"
-                    android:layout_height="100dp"
-                    android:background="@color/secundaria"/>
+                    style="@style/style_view_vertical"/>
                 <Button
                     android:id="@+id/bt21"
-                    android:layout_width="100dp"
-                    android:layout_height="100dp"
-                    android:background="@android:color/transparent" />
+                    style="@style/style_button"/>
                 <View
-                    android:layout_width="6dp"
-                    android:layout_height="100dp"
-                    android:background="@color/secundaria"/>
+                    style="@style/style_view_vertical"/>
                 <Button
                     android:id="@+id/bt22"
-                    android:layout_width="100dp"
-                    android:layout_height="100dp"
-                    android:background="@android:color/transparent" />
+                    style="@style/style_button"/>
             </TableRow>
 
         </TableLayout>

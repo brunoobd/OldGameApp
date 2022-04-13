@@ -4,9 +4,12 @@
     <option name="filePathToZoomLevelMap">
       <map>
         <entry key="..\:/Users/TecDevNoite/AndroidStudioProjects/OldGameApp/app/src/main/res/layout/activity_main.xml" value="0.5" />
-        <entry key="..\:/Users/TecDevNoite/AndroidStudioProjects/OldGameApp/app/src/main/res/layout/fragment_inicio.xml" value="0.33" />
+        <entry key="..\:/Users/TecDevNoite/AndroidStudioProjects/OldGameApp/app/src/main/res/layout/content_main.xml" value="0.36666666666666664" />
+        <entry key="..\:/Users/TecDevNoite/AndroidStudioProjects/OldGameApp/app/src/main/res/layout/fragment_inicio.xml" value="0.2" />
         <entry key="..\:/Users/TecDevNoite/AndroidStudioProjects/OldGameApp/app/src/main/res/layout/fragment_jogo.xml" value="0.33" />
         <entry key="..\:/Users/TecDevNoite/AndroidStudioProjects/OldGameApp/app/src/main/res/layout/fragment_pref.xml" value="0.36666666666666664" />
+        <entry key="..\:/Users/TecDevNoite/AndroidStudioProjects/OldGameApp/app/src/main/res/menu/menu_main.xml" value="0.36666666666666664" />
+        <entry key="..\:/Users/TecDevNoite/AndroidStudioProjects/OldGameApp/app/src/main/res/xml/preferences.xml" value="0.18" />
       </map>
     </option>
   </component>

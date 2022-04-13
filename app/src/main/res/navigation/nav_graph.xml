@@ -3,7 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/nav_graph"
-    app:startDestination="@id/jogoFragment">
+    app:startDestination="@id/inicioFragment">
     <fragment
         android:id="@+id/inicioFragment"
         android:name="br.senai.sp.cotia.oldgameapp.fragment.InicioFragment"
@@ -28,6 +28,6 @@
     <fragment
         android:id="@+id/prefFragment"
         android:name="br.senai.sp.cotia.oldgameapp.fragment.PrefFragment"
-        android:label="fragment_pref"
+        android:label="Preferências"
         tools:layout="@layout/fragment_pref" />
 </navigation>

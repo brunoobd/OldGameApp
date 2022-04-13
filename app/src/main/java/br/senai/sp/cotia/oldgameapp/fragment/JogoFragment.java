@@ -1,13 +1,22 @@
 package br.senai.sp.cotia.oldgameapp.fragment;
 
+import android.app.Dialog;
+import android.content.DialogInterface;
 import android.graphics.Color;
 import android.media.Image;
 import android.os.Bundle;
 
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.AlertDialog;
+import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
+import androidx.navigation.fragment.NavHostFragment;
 
 import android.util.Log;
 import android.view.LayoutInflater;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
@@ -19,6 +28,7 @@ import java.util.Random;
 
 import br.senai.sp.cotia.oldgameapp.R;
 import br.senai.sp.cotia.oldgameapp.databinding.FragmentJogoBinding;
+import br.senai.sp.cotia.oldgameapp.util.PrefsUtil;
 
 public class JogoFragment extends Fragment {
 
@@ -38,9 +48,21 @@ public class JogoFragment extends Fragment {
 
     private int numJogadas = 0;
 
+    // variaveis para o placar
+    private int placarJog1 = 0, placarJog2 = 0, placarVelha = 0;
+
+    // Alert Dialog
+    private AlertDialog alert;
+
+    private String jogadas;
+    private int jogadasInt;
+
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
+        // habilitar o menu
+        setHasOptionsMenu(true);
+
         // instanciar o binding
         biding = FragmentJogoBinding.inflate(inflater, container, false);
 
@@ -76,8 +98,45 @@ public class JogoFragment extends Fragment {
         }
 
         // define os simbolos do jogador1 e do jogador2
-        simbJog1 = "X";
-        simbJog2 = "O";
+        simbJog1 = PrefsUtil.getSimboloJog1(getContext());
+        simbJog2 = PrefsUtil.getSimboloJog2(getContext());
+
+        // atualiza o número de jogadas
+        jogadas = PrefsUtil.getJogadas(getContext());
+        jogadasInt = Integer.parseInt(jogadas);
+
+        Log.w("EMOJI", Character.isLetter(simbJog1.charAt(0))+"");
+        Log.w("EMOJI", Character.isDigit(simbJog1.charAt(1))+"");
+
+
+        // pega o simbolo do jogador1 e jogador2 e extrai apenas o primeiro caracter
+
+        // se for nao for vazio ele pega o caracter, caso contrario ele nao faz nada
+        if (!simbJog1.isEmpty()) {
+            // ve se é maior que 1 caracter
+            if (simbJog1.length() > 1) {
+                // ve se não é emoji
+                if (Character.isLetter(simbJog1.charAt(0)) || Character.isDigit(simbJog1.charAt(0))) {
+                    simbJog1 = simbJog1.substring(0, 1);
+                }
+            }
+        } else {
+            simbJog1 = "X";
+        }
+
+        if (!simbJog2.isEmpty()) {
+            if (simbJog2.length() > 1) {
+                if (Character.isLetter(simbJog2.charAt(0)) || Character.isDigit(simbJog2.charAt(0))) {
+                    simbJog2 = simbJog2.substring(0, 1);
+                }
+            }
+        } else {
+            simbJog2 = "O";
+        }
+
+        // atualiza o placar com os simbolos
+        // biding.tvJog1.setText(getResources().getString(R.string.jog1, simbJog1));
+        // biding.tvJog2.setText(getResources().getString(R.string.jog2, simbJog2));
 
         // instancia o random
         random = new Random();
@@ -102,6 +161,13 @@ public class JogoFragment extends Fragment {
         }
     }
 
+    // método que atualizar o placar dos jogadores...
+    private void atualizaPlacar() {
+        biding.tvPlacar1.setText(placarJog1+"");
+        biding.tvPlacar2.setText(placarJog2+"");
+        biding.tvPlacarVelha.setText(placarVelha+"");
+    }
+
     // metodo que troca a vez
     public void atualizaVez() {
         if (simbolo.equals(simbJog1)) {
@@ -113,6 +179,50 @@ public class JogoFragment extends Fragment {
         }
     }
 
+    @Override
+    public void onCreateOptionsMenu(@NonNull Menu menu, @NonNull MenuInflater inflater) {
+        inflater.inflate(R.menu.menu_main, menu);
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
+        // ALERTA
+        AlertDialog.Builder builder = new AlertDialog.Builder(getContext());
+        builder.setTitle("Resetar");
+        builder.setMessage("Deseja mesmo resetar o jogo?");
+        builder.setPositiveButton("Sim", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialogInterface, int i) {
+                placarJog1 = 0;
+                placarJog2 = 0;
+                placarVelha = 0;
+                atualizaPlacar();
+                resetaJogo();
+                Toast.makeText(getContext(), "O jogo foi resetado", Toast.LENGTH_SHORT).show();
+            }
+        });
+        builder.setNegativeButton("Não", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialogInterface, int i) {
+                Toast.makeText(getContext(), "O jogo não foi resetado", Toast.LENGTH_SHORT).show();
+            }
+        });
+        // verifica qual item do menu foi selecionado
+        switch (item.getItemId()) {
+            // caso seja a opção de resetar
+            case R.id.menu_resetar:
+                alert = builder.create();
+                alert.show();
+                break;
+            case R.id.menu_prefs:
+                NavHostFragment.findNavController(JogoFragment.this).navigate(R.id.action_jogoFragment_to_prefFragment);
+                break;
+            case R.id.menu_inicio:
+                NavHostFragment.findNavController(JogoFragment.this).navigate(R.id.action_jogoFragment_to_inicioFragment);
+                break;
+        }
+        return true;
+    }
 
     // listener para os botoes
     private View.OnClickListener listenerBotoes = btPress -> {
@@ -138,13 +248,27 @@ public class JogoFragment extends Fragment {
         // desabilitar o botao que foi clicado
         botao.setClickable(false);
 
+
+
         // verifica se venceu
         if (numJogadas >= 5 && venceu()) {
-            // informa que houve um vencedor
-            Toast.makeText(getContext(), R.string.hp, Toast.LENGTH_LONG).show();
+            // verifica quem venceu
+            if(simbolo.equals(simbJog1)) {
+                placarJog1++;
+                // informa que o jogador 1 venceu
+                Toast.makeText(getContext(), R.string.hp1, Toast.LENGTH_LONG).show();
+            } else {
+                placarJog2++;
+                // informa que o jogador 2 venceu
+                Toast.makeText(getContext(), R.string.hp2, Toast.LENGTH_LONG).show();
+            }
+            // atualiza o placar
+            atualizaPlacar();
             // resta a partida
             resetaJogo();
         } else  if (numJogadas == 9) {
+            placarVelha++;
+            atualizaPlacar();
             Toast.makeText(getContext(), R.string.velha, Toast.LENGTH_LONG).show();
             resetaJogo();
         } else {
@@ -162,9 +286,22 @@ public class JogoFragment extends Fragment {
 
             atualizaVez();
         }
-
-        Log.w("BOTAO", linha+"");
-        Log.w("BOTAO", coluna+"");
+        int totalJogadas = (jogadasInt / 2) + 1;
+        if (totalJogadas == placarJog1){
+            Toast.makeText(getContext(), "Parabens! voce ganhou a partida jogador 1.", Toast.LENGTH_LONG).show();
+            placarJog1 = 0;
+            placarJog2 = 0;
+            placarVelha = 0;
+            atualizaPlacar();
+            resetaJogo();
+        }else if (totalJogadas == placarJog2){
+            Toast.makeText(getContext(), "Parabens! voce ganhou a partida jogador 2.", Toast.LENGTH_LONG).show();
+            placarJog1 = 0;
+            placarJog2 = 0;
+            placarVelha = 0;
+            atualizaPlacar();
+            resetaJogo();
+        }
     };
 
     private boolean venceu() {
@@ -207,5 +344,17 @@ public class JogoFragment extends Fragment {
 
         sorteia();
 
+        atualizaVez();
     }
+
+    @Override
+    public void onStart() {
+        super.onStart();
+        // pega a referencia para a activity
+        AppCompatActivity activity = (AppCompatActivity) getActivity();
+        activity.getSupportActionBar().show();
+        activity.getSupportActionBar().setDisplayHomeAsUpEnabled(false);
+    }
+
+
 }

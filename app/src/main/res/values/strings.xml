@@ -1,8 +1,15 @@
 <resources>
     <string name="app_name">OldGameApp</string>
     <string name="action_settings">Settings</string>
-    <string name="hp">Parabens voce venceu!</string>
+    <string name="jog1">PLAYER 1</string>
+    <string name="jog2">PLAYER 2</string>
+    <string name="hp1">Parabens jogador 1, você venceu!</string>
+    <string name="hp2">Parabens jogador 2, você venceu!</string>
     <string name="velha">Deu velha!!</string>
-    <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="inicio">Voltar à tela inicial</string>
+    <string name="preferencias">Preferencias</string>
+    <string name="simb_jog1">Simbolo do Jogador 1</string>
+    <string name="simb_jog2">Simbolo do Jogador 2</string>
+    <string name="summary_simb_jog1">Escolha o simbolo do Jogador 1</string>
+    <string name="summary_simb_jog2">Escolha o simbolo do Jogador 2</string>
 </resources>
